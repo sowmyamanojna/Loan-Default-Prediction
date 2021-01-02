@@ -274,3 +274,9 @@ TSWLatexianTemp*
 
 # Makeindex log files
 *.lpz
+
+# Remove presonal files
+report
+
+# Remove .ipynb_checkpoints
+*.ipynb_checkpoints/
