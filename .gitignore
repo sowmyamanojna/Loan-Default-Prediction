@@ -280,3 +280,6 @@ report
 
 # Remove .ipynb_checkpoints
 *.ipynb_checkpoints/
+extra
+group24
+group24.zip
