@@ -1,0 +1,18 @@
+name = "Minimal Project"
+license = "MIT"
+licenselink = "https://github.com/sowmyamanojna/hugo-minimal-project/blob/master/LICENSE.md"
+description = "Theme for documenting Projects."
+homepage = "https://github.com/sowmyamanojna/hugo-minimal-project/"
+tags = ["documentation", "project", "landing page", "opensource", "single page"]
+features = ["github", "images", "inline math"]
+min_version= "0.48"
+
+[author]
+     name = ""
+
+# If porting an existing theme
+[original]
+    author =  "Christian Decker"
+    homepage = "https://github.com/cdeck3r/OneDly-Theme"
+    repo = "https://github.com/cdeck3r/OneDly-Theme"
+
