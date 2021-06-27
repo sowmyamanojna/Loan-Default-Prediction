@@ -1,15 +1,15 @@
 #!/bin/sh
 
-# Need to be in main for building webpage
-git checkout main
+# Need to be in webpage for building webpage
+git checkout webpage
 
 # Add changes to git.
 git add .
 
 # Commit changes.
-read -p "Enter 'main' commit message: " msg
+read -p "Enter 'webpage' commit message: " msg
 git commit -m "$msg"
-git push origin main
+git push origin webpage
 
 printf "\033[0;32mDeploying updates to GitHub...\033[0m\n"
 
@@ -36,4 +36,4 @@ git commit -m "$msg"
 git push origin gh-pages
 
 # Change the branch back
-git checkout main
+git checkout webpage
