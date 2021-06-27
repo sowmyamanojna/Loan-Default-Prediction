@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Loan Default Prediction</title>
+    <link>https://sowmyamanojna.github.io/Loan-Default-Prediction/</link>
+    <description>Recent content on Loan Default Prediction</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 06 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://sowmyamanojna.github.io/Loan-Default-Prediction/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Content</title>
+      <link>https://sowmyamanojna.github.io/Loan-Default-Prediction/main/content/</link>
+      <pubDate>Wed, 06 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sowmyamanojna.github.io/Loan-Default-Prediction/main/content/</guid>
+      <description>Data Pre-Processing The missing values in the data were visualized using the library missingno. All the columns in the dataset were found to have approximately 2.5% of the data missing. The spread of the data was analyzed and the dataset was found to have columns with varying scales. Thus, making feature scaling an important pre-processing step.
+  Figure 1Visualization of missing values in the initial dataset. White horizontal bars indicate missing values.</description>
+    </item>
+    
+  </channel>
+</rss>

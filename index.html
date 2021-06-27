@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="generator" content="Hugo 0.82.0" />
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="
+		"> 
+    
+	<meta name="author" content=" map[] ">  
+    <base href="https://sowmyamanojna.github.io/Loan-Default-Prediction/">
+    <title>Loan Default Prediction</title>
+
+   
+    
+    <link href="/Loan-Default-Prediction/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    
+
+    
+    <link href="/Loan-Default-Prediction/css/project.css" rel="stylesheet" type="text/css">
+    
+    
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet"> 
+
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" crossorigin="anonymous">
+
+    
+    
+    
+
+    
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-175587743-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+    
+      
+        
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js" integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+      
+      
+    <style>
+    body {
+  color: <no value>;
+  /*font-family: 'Frank Ruhl Libre', serif;*/
+}
+
+h1,
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+	font-family: 'Frank Ruhl Libre', serif;
+}
+
+.header-container h1,
+.header-container h2,
+.header-container h3,
+.header-container h4 {
+  color: <no value>;
+}
+ 
+  </style>
+
+</head>
+<body>
+
+<section id="intro">
+	
+	<div class="container">
+		<div class="row">
+			<h2 class="col-md-12 text-center intro">
+				Loan Default Prediction
+			</h2>
+			<h3 class="col-md-12 text-center intro">
+				MS4610 Project, Fall 2020
+			</h3>
+
+			<div class="row">
+	            <div class="col-md-12 text-center">
+				   <ul class="list-inline">
+  
+   <li>
+       <a href="https://sowmyamanojna.github.io/">
+         
+         N Sowmya Manojna
+       </a>
+   </li>
+  
+   <li>
+       <a href="">
+         
+         Uma Maheshwaran
+       </a>
+   </li>
+  
+  <br>
+  Indian Institute of Technology Madras
+</ul>
+
+	            </div>
+	        </div>
+	        <div class="col-md-4 col-md-offset-4 text-center intro-images">
+				<ul class="nav nav-pills nav-justified">
+				
+
+
+
+
+
+
+
+
+<li>
+    <a href="docs/report.pdf">
+        <image src="img/report.png" height="60px"><br>
+            Report
+    </a>
+</li>
+
+
+
+
+
+<li>
+    <a href="https://github.com/sowmyamanojna/Loan-Default-Prediction">
+        <image src="img/github.png" height="60px"><br>
+            Code
+    </a>
+</li>
+
+
+
+
+
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<style>
+.intro {
+	font-weight: 300;
+}
+</style>
+
+<section id = "social-share-section">
+
+	<div class="container">
+		<div class="row">
+            <div class="col-md-12 text-center">
+				<ul class="list-inline" style="margin-bottom: 10px; margin-top: 10px;">
+					
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="list-inline">
+    Share: 
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://sowmyamanojna.github.io/Loan-Default-Prediction/&amp;text=Loan%20Default%20Prediction" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://sowmyamanojna.github.io/Loan-Default-Prediction/&amp;t=Loan%20Default%20Prediction" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Loan%20Default%20Prediction&amp;body=https://sowmyamanojna.github.io/Loan-Default-Prediction/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://sowmyamanojna.github.io/Loan-Default-Prediction/&amp;title=Loan%20Default%20Prediction" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Loan%20Default%20Prediction%20https://sowmyamanojna.github.io/Loan-Default-Prediction/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
+<main class="container flex">
+    
+    
+        <div class="col-md-8 col-md-offset-2">
+            <h2 id="data-pre-processing">Data Pre-Processing</h2>
+<p>The missing values in the data were visualized using the library missingno. All the columns in the dataset were found to have approximately 2.5% of the data missing. The spread of the data was analyzed and the dataset was found to have columns with varying scales. Thus, making feature scaling an important pre-processing step.</p>
+<figure>
+    <img src="img/init_missingno.png"
+         alt="Visualization of missing values in the initial dataset. White horizontal bars indicate missing values." width="100%"/> <figcaption>
+            <h4>Figure 1</h4><p>Visualization of missing values in the initial dataset. White horizontal bars indicate missing values.</p>
+        </figcaption>
+</figure>
+
+<h2 id="data-imputation">Data Imputation</h2>
+<p>Imputation was performed using a Random Forest based method, implemented using the <code>MissForest</code> Imputer. The categorical variables were masked and categorical imputation was performed on them. A total of 6 imputation iterations were performed to completely fill all the missing values in the dataset.</p>
+<h2 id="feature-selection">Feature Selection</h2>
+<p>One-hot encoding of the features - Loan type, Occupation type was done after imputing the dataset and the first category was dropped after the encoding, to ensure that the resulting encoded features are linearly independent.</p>
+<h3 id="correlation">Correlation</h3>
+<p>The correlation between the features was calculated and visualized using heatmaps and a cut-off of 0.75 was used to identify all highly correlated features.</p>
+<p>The highly correlated features in the dataset were:</p>
+<table class='table table-striped table-hover'>
+<thead>
+<tr>
+<th>Feature 1</th>
+<th>Feature 2</th>
+<th>Correlation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Expense</td>
+<td>Score5</td>
+<td>1.000000</td>
+</tr>
+<tr>
+<td>Score2</td>
+<td>Score4</td>
+<td>0.786452</td>
+</tr>
+<tr>
+<td>Age</td>
+<td>Score2</td>
+<td>0.780841</td>
+</tr>
+</tbody>
+</table>
+<h3 id="multicollinearity">Multicollinearity</h3>
+<p>Variance Inflation Factor (<code>VIF</code>) was used to calculate the multicollinearity between the features in the dataset. The <code>VIF</code> of the initial dataset is as follows:</p>
+<table class='table table-striped table-hover'>
+<thead>
+<tr>
+<th>Features</th>
+<th>VIF Factor</th>
+<th>Features</th>
+<th>VIF Factor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Score5</td>
+<td>9.051581e+07</td>
+<td>Score3</td>
+<td>1.894692e+03</td>
+</tr>
+<tr>
+<td>Score4</td>
+<td>5.462307e+07</td>
+<td>Occupation_type_2.0</td>
+<td>1.282768e+01</td>
+</tr>
+<tr>
+<td>Expense</td>
+<td>5.940019e+06</td>
+<td>Occupation_type_1.0</td>
+<td>7.769822e+00</td>
+</tr>
+<tr>
+<td>Score2</td>
+<td>3.707871e+04</td>
+<td>Loan_type_1.0</td>
+<td>5.941420e+00</td>
+</tr>
+<tr>
+<td>Score1</td>
+<td>3.267527e+03</td>
+<td>Age</td>
+<td>5.783687e+00</td>
+</tr>
+<tr>
+<td>Income</td>
+<td>2.267588e+03</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>From Table 2 it is seen that Score5, Score4 and Expense have a high <code>VIF</code>, a trend similar to what was observed in Table 1.</p>
+<h2 id="data-generation">Data Generation</h2>
+<p>The dataset was highly imbalanced - with 5247 transactions labeled as defaulted out of 80, 000 transactions. As, several Machine Learning methods are sensitive to imbalanced classes, Synthetic Minority Oversampling Technique (<code>SMOTE</code>)<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> was used to generate synthetic data for the defaulted transaction class, so that both classes have the same number of samples.</p>
+<p>Prior to the <code>SMOTE</code> data generation, the dataset was split into the train set and the validation set in the ratio 3:1. The samples for class 1, in the train dataset alone were generated using <code>SMOTE</code>. The distribution of samples before and after the <code>SMOTE</code> data generation is as follows:</p>
+<figure>
+    <img src="img/smote.png"
+         alt="Sample distribution before and after SMOTE data generation. Synthetic data was generated for class 1, so that the number of samples in both classes are the same." width="100%"/> <figcaption>
+            <h4>Figure 2</h4><p>Sample distribution before and after <code>SMOTE</code> data generation. Synthetic data was generated for class 1, so that the number of samples in both classes are the same.</p>
+        </figcaption>
+</figure>
+
+<h2 id="parameter-tuning">Parameter Tuning</h2>
+<p>Parameter tuning was carried out using Grid Search with a 5-fold Cross Validation and F1 Score as the scoring function. The parameter tuning was carried out for the following ML models:</p>
+<ul>
+<li>Multi Layered Perceptron (MLP)</li>
+<li>Multi Layered Perceptron (MLP), with Standardized Input Dataset</li>
+<li>Random Forest (RF)</li>
+<li>AdaBoost with Decision Trees as the base classifier.</li>
+<li>Support Vector Machines (SVM)</li>
+<li>Support Vector Machines (SVM), with Standardized Input Dataset</li>
+<li>K-Nearest Neighbors (KNN)</li>
+<li>K-Nearest Neighbors (KNN), with Standardized Input Dataset</li>
+<li>Decision Trees Classifier</li>
+<li>SGD Classifier (linear SVM with Stochastic Gradient Descent)</li>
+<li>Logistic Regression</li>
+</ul>
+<p>The performance of the models on the training data, with the best parameter set returned is as shown below:</p>
+<figure>
+    <img src="img/f1_train.png"
+         alt="Performance of the models on the training data using the best tuned parameter set returned from GridSearchCV." width="100%"/> <figcaption>
+            <h4>Figure 3</h4><p>Performance of the models on the training data using the best tuned parameter set returned from GridSearchCV.</p>
+        </figcaption>
+</figure>
+
+<h2 id="model-selection">Model Selection</h2>
+<p>All the models above, with the trained parameters and some additional models such as - <code>GaussianNB</code>, <code>BernoulliNB</code>, <code>LDA</code> (Linear Discriminant Analysis) and <code>ExtraTreesClassifier</code>, were implemented on the Validation dataset. The performance of the models is as follows:</p>
+<figure>
+    <img src="img/f1_val.png"
+         alt="Performance of the models on the training data using the best tuned parameter set returned from GridSearchCV." width="100%"/> <figcaption>
+            <h4>Figure 4</h4><p>Performance of the models on the training data using the best tuned parameter set returned from GridSearchCV.</p>
+        </figcaption>
+</figure>
+
+<p>From Figure 4, it is noted that the F1-Score of the models - <code>KNN_SS</code>, <code>RF</code>, <code>SVM_SS</code>, <code>ExtraTrees</code> and <code>MLP_SS</code> is greater than 85%.</p>
+<h2 id="final-model---stacking-classifier">Final Model - Stacking Classifier</h2>
+<p>The models that gave an F1-Score greater than 85% were chosen and ensemble classification was done using these chosen models. The ensemble classification methods used are - StackingClassifier with the base model as MLP with Scaled input and VotingClassifier with both hard and soft voting. The results obtained are as follows:</p>
+<figure>
+    <img src="img/f1_ensemble.png"
+         alt="Performance of ensemble models with the models that gave accuracy higher than 85%." width="80%"/> <figcaption>
+            <h4>Figure 5</h4><p>Performance of ensemble models with the models that gave accuracy higher than 85%.</p>
+        </figcaption>
+</figure>
+
+<p>The results obtained are as follows:</p>
+<table class='table table-striped table-hover'>
+<thead>
+<tr>
+<th>Model</th>
+<th>Precision</th>
+<th>Recall</th>
+<th>F1-Score</th>
+<th>Accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stacking Classifier</td>
+<td>91.0</td>
+<td>90.0</td>
+<td>91.0</td>
+<td>99.0</td>
+</tr>
+<tr>
+<td>Voting Classfier (Soft)</td>
+<td>89.0</td>
+<td>89.0</td>
+<td>89.0</td>
+<td>99.0</td>
+</tr>
+<tr>
+<td>Voting Classfier (Hard)</td>
+<td>89.0</td>
+<td>88.0</td>
+<td>88.0</td>
+<td>98.0</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="hint">
+  The best ensemble model is the <code>Stacking Classifier</code> model, with an F1-Score of 91% and Accuracy of 99%.
+</blockquote>
+
+<h2 id="references">References</h2>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>Nitesh V Chawla, Kevin W Bowyer, Lawrence O Hall, and W Philip Kegelmeyer. SMOTE: synthetic minority over-sampling technique. <em>Journal of Artificial Intelligence Research</em>, 16:321–357, 2002. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+        </div>
+        <aside class="toc">
+            <h2 class="toc">Table of Contents</h2>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#data-pre-processing">Data Pre-Processing</a></li>
+    <li><a href="#data-imputation">Data Imputation</a></li>
+    <li><a href="#feature-selection">Feature Selection</a>
+      <ul>
+        <li><a href="#correlation">Correlation</a></li>
+        <li><a href="#multicollinearity">Multicollinearity</a></li>
+      </ul>
+    </li>
+    <li><a href="#data-generation">Data Generation</a></li>
+    <li><a href="#parameter-tuning">Parameter Tuning</a></li>
+    <li><a href="#model-selection">Model Selection</a></li>
+    <li><a href="#final-model---stacking-classifier">Final Model - Stacking Classifier</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+
+        </aside>
+    
+</section>
+
+
+<style>
+h1,
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+    font-weight: 500;
+}
+
+ 
+
+</style>
